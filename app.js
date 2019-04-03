@@ -8,6 +8,8 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
 
-app.listen(config.port, () => {
-  console.log('listening on port:' + config.port)
-})
+// app.listen(config.port, () => {
+//   console.log('listening on port:' + config.port)
+// })
+
+module.exports = app
