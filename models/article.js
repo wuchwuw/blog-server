@@ -3,7 +3,7 @@ const DatePlguin = require('./plugins/date')
 const Schema = mongoose.Schema
 
 const ArticleSchema = new Schema({
-  name: { type: String },
+  title: { type: String },
   content: { type: String },
   tags: [Schema.Types.ObjectId],
   create_at: { type: Date, default: Date.now },
@@ -12,4 +12,4 @@ const ArticleSchema = new Schema({
 
 ArticleSchema.plugin(DatePlguin(false))
 
-mongoose.model('Article', UserSchema)
+mongoose.model('Article', ArticleSchema)
