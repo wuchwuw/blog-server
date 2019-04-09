@@ -8,9 +8,9 @@ const ArticleRule = {
 }
 
 exports.create = async function (ctx, next) {
-  let { title, content, tags } = ctx.request.body
-  validator(ctx, { title }, ArticleRule)
   try {
+    let { title, content, tags } = ctx.request.body
+    validator(ctx, { title }, ArticleRule)
     let article = await ArticleProxy.newAndSave(title, content, tags)
     ctx.body = {
       success: true,
@@ -22,7 +22,7 @@ exports.create = async function (ctx, next) {
       },
       message: '保存文章成功'
     }
-  } catch (e) {
-    ctx.throw(500, 'error')
+  } catch (err) {
+    ctx.throw(500, err)
   }
 }

@@ -30,7 +30,7 @@ module.exports = function validator (ctx, data, rules) {
   }
   ctx.throw(400, {
     data: {
-      message: 'asd'
+      message: err
     }
   })
 }

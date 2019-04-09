@@ -10,8 +10,6 @@ module.exports = async function handleError (ctx, next) {
         success: false,
         data: err.data
       }
-    } else {
-      ctx.message = err.message
     }
     ctx.app.emit('error', err, ctx)
   }

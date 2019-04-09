@@ -1,12 +1,16 @@
 const router = require('koa-router')()
 const ArticleController = require('./controllers/article')
 const TagController = require('./controllers/tag')
-
+const App = require('../client/app.js')
+const ReactDOMServer = require('react-dom/server')
+const React = require('react')
 // const router = new Router()
 
-router.get('/', (ctx, next) => {
-  ctx.body = 'get index'
-  next()
+router.get('/', async (ctx, next) => {
+  const reactHtml = ReactDOMServer.renderToString(<App></App>)
+  await ctx.render('../views/index.html', {
+    html: reactHtml
+  })
 })
 
 router.get('/topic', (ctx, next) => {
