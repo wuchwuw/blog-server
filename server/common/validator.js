@@ -8,7 +8,7 @@ const strategies = {
   }
 }
 
-module.exports = function validator (ctx, data, rules) {
+export function validator (ctx, data, rules) {
   let formKeys = Object.keys(data)
   let err
   for (let i = 0; i < formKeys.length; i++) {

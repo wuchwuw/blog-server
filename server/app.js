@@ -1,16 +1,14 @@
-require('@babel/register')
-require("@babel/polyfill")
-const config = require('./config')
-const Koa = require('koa')
-const router = require('./router')
-const bodyParser = require('koa-bodyparser')
-const errorHandle = require('./middlewares/error')
-const logger = require('./common/logger')
-const path = require('path')
-const views = require('koa-views')
-const webpack = require('webpack')
-const { devMiddleware } = require('koa-webpack-middleware')
-const webpackconfig = require('../build/webpack.config')
+import config from './config'
+import Koa from 'koa'
+import router from './router'
+import bodyParser from 'koa-bodyparser'
+import errorHandle from './middlewares/error'
+import logger from './common/logger'
+import path from 'path'
+import views from 'koa-views'
+import webpack from 'webpack'
+import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware'
+import webpackconfig from '../build/webpack.config'
 
 const app = new Koa()
 
@@ -22,6 +20,7 @@ app.use(router.allowedMethods())
 
 const compiler = webpack(webpackconfig)
 app.use(devMiddleware(compiler))
+app.use(hotMiddleware(compiler))
 
 app.on('error', (err) => {
   // todo error log

@@ -1,13 +1,20 @@
-const router = require('koa-router')()
-const ArticleController = require('./controllers/article')
-const TagController = require('./controllers/tag')
-const App = require('../client/app.js')
-const ReactDOMServer = require('react-dom/server')
-const React = require('react')
+import koaRouter from 'koa-router'
+import ArticleController from './controllers/article'
+import TagController from './controllers/tag'
+import App from '../client/app.js'
+import ReactDOMServer from 'react-dom/server'
+import React from 'react'
+import { StaticRouter } from 'react-router-dom'
 // const router = new Router()
+const router = koaRouter()
 
 router.get('/', async (ctx, next) => {
-  const reactHtml = ReactDOMServer.renderToString(<App></App>)
+  console.log(ctx.req.url)
+  const reactHtml = ReactDOMServer.renderToString(
+    <StaticRouter location={ctx.req.url} context={{}}>
+      <App />
+    </StaticRouter>
+  )
   await ctx.render('../views/index.html', {
     html: reactHtml
   })
@@ -32,4 +39,4 @@ router.post('/tag/create', TagController.create)
 
 router.get('/tag/list', TagController.all)
 
-module.exports = router
+export default router

@@ -1,5 +1,5 @@
-const ArticleProxy = require('../proxy').Article
-const validator = require('../common/validator')
+import { Article as ArticleProxy } from '../proxy'
+import validator from '../common/validator'
 
 const ArticleRule = {
   title: [
@@ -7,7 +7,7 @@ const ArticleRule = {
   ]
 }
 
-exports.create = async function (ctx, next) {
+async function create (ctx, next) {
   try {
     let { title, content, tags } = ctx.request.body
     validator(ctx, { title }, ArticleRule)
@@ -25,4 +25,8 @@ exports.create = async function (ctx, next) {
   } catch (err) {
     ctx.throw(500, err)
   }
+}
+
+export default {
+  create
 }

@@ -1,8 +1,8 @@
-const moment = require('moment')
+import moment from 'moment'
 
 moment.locale('zh-cn')
 
-exports.formatDate = function (date, friendly) {
+export function formatDate (date, friendly) {
   date = moment(date);
 
   if (friendly) {

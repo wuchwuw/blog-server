@@ -1,5 +1,5 @@
-const log4js = require('log4js')
-const path = require('path')
+import log4js from 'log4js'
+import path from 'path'
 
 log4js.configure({
   appenders: {
@@ -16,4 +16,4 @@ const debug = true
 
 const logger = log4js.getLogger(debug ? '' : 'file')
 
-module.exports = logger
+export default logger

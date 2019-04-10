@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const DatePlguin = require('./plugins/date')
+import mongoose from 'mongoose'
+import DatePlguin from './plugins/date'
 const Schema = mongoose.Schema
 
 const TagSchema = new Schema({
@@ -11,4 +11,6 @@ const TagSchema = new Schema({
 
 TagSchema.plugin(DatePlguin(false))
 
-mongoose.model('Tag', TagSchema)
+const TagModel = mongoose.model('Tag', TagSchema)
+
+export default TagModel

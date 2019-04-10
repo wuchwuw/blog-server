@@ -1,4 +1,4 @@
-module.exports = async function handleError (ctx, next) {
+export default async function handleError (ctx, next) {
   try {
     await next()
   } catch (err) {

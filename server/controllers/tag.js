@@ -1,6 +1,6 @@
-const TagProxy = require('../proxy').Tag
+import { Tag as TagProxy } from '../proxy'
 
-exports.create = async function (ctx, next) {
+async function create (ctx, next) {
   let { title } = ctx.request.body
   try {
     await TagProxy.newAndSave(title, content, tags)
@@ -14,7 +14,7 @@ exports.create = async function (ctx, next) {
   }
 }
 
-exports.all = async function (ctx, next) {
+async function all (ctx, next) {
   try {
     let tags = await TagProxy.findAll()
     ctx.body = {
@@ -27,4 +27,9 @@ exports.all = async function (ctx, next) {
   } catch (e) {
     ctx.throw(500, 'error')
   }
+}
+
+export default {
+  create,
+  all
 }

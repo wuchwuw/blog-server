@@ -1,6 +1,6 @@
-const TagModel = require('../models').Tag
+import { TagModel } from '../models'
 
-exports.newAndSave = function (name) {
+export function newAndSave (name) {
   let tag = new TagModel({
     name,
     articles: []
@@ -8,6 +8,6 @@ exports.newAndSave = function (name) {
   return tag.save()
 }
 
-exports.findAll = function () {
+export function findAll () {
   return TagModel.find({})
 }

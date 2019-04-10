@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const DatePlguin = require('./plugins/date')
+import mongoose from 'mongoose'
+import DatePlguin from './plugins/date'
 const Schema = mongoose.Schema
 
 const ArticleSchema = new Schema({
@@ -12,4 +12,6 @@ const ArticleSchema = new Schema({
 
 ArticleSchema.plugin(DatePlguin(false))
 
-mongoose.model('Article', ArticleSchema)
+const ArticleModel = mongoose.model('Article', ArticleSchema)
+
+export default ArticleModel

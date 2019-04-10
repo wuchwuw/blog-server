@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const DatePlguin = require('./plugins/date')
+import mongoose from 'mongoose'
+import DatePlguin from './plugins/date'
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
@@ -11,4 +11,6 @@ const UserSchema = new Schema({
 
 UserSchema.plugin(DatePlguin(false))
 
-mongoose.model('User', UserSchema)
+const UserModel = mongoose.model('User', UserSchema)
+
+export default UserModel

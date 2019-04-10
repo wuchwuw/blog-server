@@ -1,7 +1,7 @@
-const { User } = require('../models')
+import { UserModel } from '../models'
 
-module.exports = function createUser ({ name, password }, callback) {
-  let user = new User({
+export function createUser ({ name, password }, callback) {
+  let user = new UserModel({
     name,
     password
   })

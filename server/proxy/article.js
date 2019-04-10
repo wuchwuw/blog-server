@@ -1,6 +1,6 @@
-const ArticleModel = require('../models').Article
+import { ArticleModel } from '../models'
 
-exports.newAndSave = function (title, content, tags) {
+export function newAndSave (title, content, tags) {
   let article = new ArticleModel({
     title,
     content,
