@@ -5,7 +5,8 @@ import styled from 'styled-components'
 const Home = () => {
   return (
     <HomeWrap>
-      <LeftBar>Home asasdasdsdssss</LeftBar>
+      <LeftBar>Home saaassassadssssdsasasdasddasdss</LeftBar>
+      <div></div>
       <Icon icon="iconVue" height="16" width="16"></Icon>
     </HomeWrap>
   )

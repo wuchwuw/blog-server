@@ -1,18 +1,18 @@
 const path = require('path')
 const webpack = require('webpack')
-
+console.log(path.join(__dirname, '../dist'))
+console.log(path.join(__dirname, '../client/index.js'))
 module.exports = {
   mode: 'development',
   entry: {
-    app: [
-      'react-hot-loader/patch',
-      'webpack-hot-middleware/client',
+    index: [
+      'webpack-hot-middleware/client?path=http://127.0.0.1:3000/__webpack_hmr&noInfo=false&reload=true&quiet=false',
       './client/index.js'
     ]
   },
   output: {
-    path: `${__dirname}/dist`,
-    filename: 'bundle.js',
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
