@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wuch1995/blog-server#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
+    "css-doodle": "^0.6.1",
     "ejs": "^2.6.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.0",

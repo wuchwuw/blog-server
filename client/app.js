@@ -1,11 +1,37 @@
-import React, { useState } from 'react'
-import { hot } from 'react-hot-loader/root'
-import { renderRoutes } from 'react-router-config'
+import React from 'react'
+import {
+  Switch,
+  Redirect,
+  Route
+} from "react-router-dom";
+import GlobalStyle from './common/style/global-style.js'
+import router from './router/config'
 
-const App = ({route}) => {
+const App = () => {
   return (
-    renderRoutes(route.routes)
+    <div className="container">
+      <GlobalStyle></GlobalStyle>
+      <Switch>
+        {
+          router.map((route, i) =>
+            <Route key={i} {...route} />
+          )
+        }
+        <Redirect from="/" to="/home" exact={true} />
+        {/* <StatusRoute code={404}>
+          <div>
+            <h1>Not Found</h1>
+          </div>
+        </StatusRoute> */}
+        {/*<Route path="/bar" component={Bar} />
+        <Route path="/baz" component={Baz} />
+        <Route path="/foo" component={Foo} />
+        <Route path="/top-list" component={TopList} />
+        <Redirect from="/" to="/bar" exact />
+        */}
+      </Switch>
+    </div>
   )
 }
 
-export default hot(App)
+export default App

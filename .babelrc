@@ -3,5 +3,9 @@
     "@babel/env",
     "@babel/preset-react"
   ],
-  "plugins": ["react-hot-loader/babel"]
+  // "plugins": [
+  //   ["@babel/plugin-proposal-decorators", {
+  //     "legacy": true
+  //   }]
+  // ]
 }

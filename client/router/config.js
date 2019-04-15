@@ -1,16 +1,14 @@
 import Home from '../views/home/index'
-import App from '../app'
+import Hello from '../views/home/index'
 
 const routes = [
   {
-    component: App,
-    routes: [
-      {
-        path: '/',
-        component: Home,
-        exact: true
-      }
-    ]
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/hello',
+    component: Hello
   }
 ]
 

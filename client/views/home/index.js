@@ -1,23 +1,23 @@
 import React from 'react'
-import Icon from '../../components/icon/icon'
 import styled from 'styled-components'
+import LeftBar from './left-bar'
+import Article from './Article'
+import Moment from './moment'
 
 const Home = () => {
   return (
     <HomeWrap>
-      <LeftBar>Home saaassassadssssdsasasdasddasdss</LeftBar>
-      <div></div>
-      <Icon icon="iconVue" height="16" width="16"></Icon>
+      <LeftBar></LeftBar>
+      <Article></Article>
+      <Moment></Moment>
     </HomeWrap>
   )
 }
 
 const HomeWrap = styled.div`
   display: flex;
-`
-const LeftBar = styled.div`
-  width: 200px;
-  background: green;
+  height: 100%;
+  background: rgba(0, 0, 0, .009);
 `
 
 export default Home

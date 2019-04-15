@@ -6,8 +6,8 @@ module.exports = {
   mode: 'development',
   entry: {
     index: [
-      'webpack-hot-middleware/client?path=http://127.0.0.1:3000/__webpack_hmr&noInfo=false&reload=true&quiet=false',
-      './client/index.js'
+      'webpack-hot-middleware/client',
+      './client/entry-client.js'
     ]
   },
   output: {

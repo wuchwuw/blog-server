@@ -1,26 +1,25 @@
 import koaRouter from 'koa-router'
 import ArticleController from './controllers/article'
 import TagController from './controllers/tag'
-import App from '../client/app.js'
-import ReactDOMServer from 'react-dom/server'
-import React from 'react'
-import { StaticRouter } from 'react-router-dom'
+import { createApp } from '../client/entry-server.js'
+
 // const router = new Router()
 const router = koaRouter()
 
-router.get('/', async (ctx, next) => {
-  console.log(ctx.req.url)
+router.get('*', async (ctx, next) => {
+  console.log('*')
+  let component = createApp({}, ctx.url)
   const reactHtml = ReactDOMServer.renderToString(
-    <StaticRouter location={ctx.req.url} context={{}}>
-      <App />
-    </StaticRouter>
+    component
   )
   await ctx.render('../views/index.html', {
     html: reactHtml
   })
+  next()
 })
 
 router.get('/topic', (ctx, next) => {
+  console.log('/topic')
   ctx.body = 'get topic11333333333'
   next()
 })
