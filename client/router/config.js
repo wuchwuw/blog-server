@@ -1,14 +1,18 @@
 import Home from '../views/home/index'
-import Hello from '../views/home/index'
+import Detail from '../views/home/detail'
 
 const routes = [
   {
-    path: '/home',
-    component: Home
-  },
-  {
-    path: '/hello',
-    component: Hello
+    path: '/',
+    component: Home,
+    name: 'home',
+    routes: [
+      {
+        path: '/:id',
+        component: Detail,
+        name: 'detail'
+      }
+    ]
   }
 ]
 

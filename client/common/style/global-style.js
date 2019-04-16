@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  html, body, div, span, applet, object, iframe, blockquote,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
@@ -26,6 +25,17 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
+  p, code, pre {
+    line-height: 1.5;
+  }
+
+  pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 16px;
+  }
+
   html, body {
     height: 100%;
   }
@@ -33,7 +43,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     -webkit-text-size-adjust: none;
     line-height: 1;
-    font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     color: #222222;
@@ -72,6 +81,23 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     height: 100%
+  }
+
+  .fade-enter {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  .fade-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
   }
 `
 

@@ -1,3 +1,4 @@
+import 'ignore-styles'
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 import { StaticRouter } from "react-router-dom"

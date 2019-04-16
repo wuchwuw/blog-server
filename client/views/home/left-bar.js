@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '../../components/icon/icon'
 import styled from 'styled-components'
+// import Doodle from '../../components/doodle'
 
 const LeftBar = () => {
   return (
@@ -14,6 +15,21 @@ const LeftBar = () => {
        <LiTag><Icon icon="icon-vue" height="20" width="20"></Icon><SpanText>Vue</SpanText></LiTag> 
        <LiTag><Icon icon="icon-react" height="20" width="20"></Icon><SpanText>React</SpanText></LiTag> 
       </UlTag>
+      {/* <Doodle rule={`
+        :doodle {
+          @grid: 7 / 100%;
+        }
+        @size: .8em;
+        background: hsla(calc(10 * @index()), 60%, 60%, .2);
+        clip-path: polygon( 50% 0, 100% 100%, 0 100%);
+        transform:
+          rotate(@rand(360deg))
+          scale(@rand(.6, 1, .1))
+          translate(
+            @rand(-10em, 10em),
+            @rand(-10em, 10em)
+          )
+      `}></Doodle> */}
       <About><Icon icon="icon-github" height="20" width="20"></Icon><Icon icon="icon-email" height="20" width="20"></Icon></About>
     </LeftBarWrap>
   )

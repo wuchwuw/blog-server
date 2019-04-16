@@ -13,11 +13,12 @@ const App = () => {
       <GlobalStyle></GlobalStyle>
       <Switch>
         {
-          router.map((route, i) =>
-            <Route key={i} {...route} />
-          )
+          router.map((route, i) => (
+            <Route key={i} path={route.path} exact={route.exact} render={props => (
+              <route.component {...props} routes={route.routes}/>
+            )}/>
+          ))
         }
-        <Redirect from="/" to="/home" exact={true} />
         {/* <StatusRoute code={404}>
           <div>
             <h1>Not Found</h1>

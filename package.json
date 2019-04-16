@@ -21,6 +21,7 @@
     "@babel/polyfill": "^7.4.3",
     "css-doodle": "^0.6.1",
     "ejs": "^2.6.1",
+    "highlight.js": "^9.15.6",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
@@ -35,6 +36,7 @@
     "react-router": "^5.0.0",
     "react-router-config": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "react-transition-group": "^3.0.0",
     "styled-components": "^4.2.0",
     "validator": "^10.11.0"
   },
@@ -46,9 +48,12 @@
     "@babel/register": "^7.4.0",
     "babel-loader": "^8.0.5",
     "babel-preset-react-hmre": "^1.1.1",
+    "css-loader": "^2.1.1",
+    "ignore-styles": "^5.0.1",
     "jest": "^24.7.0",
     "koa-webpack": "^5.2.2",
     "koa-webpack-middleware": "^1.0.7",
+    "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-dev-middleware": "^3.6.2"
