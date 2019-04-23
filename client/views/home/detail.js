@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import marked from 'marked'
-import hljs from 'highlight.js'
+// import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
-marked.setOptions({
-  highlight: function(code) {
-    return hljs.highlightAuto(code).value;
-  }
-})
+// marked.setOptions({
+//   highlight: function(code) {
+//     return hljs.highlightAuto(code).value;
+//   }
+// })
 
 const Detail = (props) => {
   const contentRef = useRef(null)

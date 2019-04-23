@@ -90,14 +90,14 @@ const GlobalStyle = createGlobalStyle`
   .fade-enter-active {
     transform: translateX(0);
     opacity: 1;
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
   .fade-exit {
     opacity: 1;
   }
   .fade-exit-active {
     opacity: 0;
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
 `
 

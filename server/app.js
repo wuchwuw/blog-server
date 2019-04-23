@@ -22,9 +22,9 @@ app.use(devMiddleware(compiler, {
   publicPath: '/'
 }))
 app.use(hotMiddleware(compiler))
-app.use(render)
 app.use(router.routes())
 app.use(router.allowedMethods())
+app.use(render)
 
 app.on('error', (err) => {
   // todo error log
