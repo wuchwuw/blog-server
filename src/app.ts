@@ -5,8 +5,8 @@ import bodyParser from 'koa-bodyparser'
 import errorHandle from './middlewares/error'
 // import render from './middlewares/render'
 import logger from './common/logger'
-import path from 'path'
-import views from 'koa-views'
+// import path from 'path'
+// import views from 'koa-views'
 
 const app = new Koa()
 

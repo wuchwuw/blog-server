@@ -15,8 +15,8 @@ mongoose.connect(config.db, {
 })
 
 
-export default {
-  UserModel,
+export {
   ArticleModel,
+  UserModel,
   TagModel
 }

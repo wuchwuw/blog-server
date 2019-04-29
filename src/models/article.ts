@@ -1,17 +1,17 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema, Model } from 'mongoose'
+import { ArticleInterface } from '../types/model'
 import DatePlguin from './plugins/date'
-const Schema = mongoose.Schema
 
-const ArticleSchema = new Schema({
+const ArticleSchema: Schema = new Schema({
   title: { type: String },
   content: { type: String },
-  tags: [Schema.Types.ObjectId],
+  tags: Schema.Types.ObjectId,
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now }
 })
 
 ArticleSchema.plugin(DatePlguin(false))
 
-const ArticleModel = mongoose.model('Article', ArticleSchema)
+const ArticleModel: Model<ArticleInterface> = mongoose.model<ArticleInterface>('Article', ArticleSchema)
 
 export default ArticleModel

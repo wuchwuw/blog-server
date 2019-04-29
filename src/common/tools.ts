@@ -1,13 +1,13 @@
-import moment from 'moment'
+import * as moment from 'moment'
 
 moment.locale('zh-cn')
 
-export function formatDate (date, friendly) {
-  date = moment(date);
+export function formatDate (date: Date, friendly: boolean) {
+  let d = moment(date);
 
   if (friendly) {
-    return date.fromNow();
+    return d.fromNow();
   } else {
-    return date.format('YYYY-MM-DD HH:mm');
+    return d.format('YYYY-MM-DD HH:mm');
   }
 }

@@ -1,2 +1,7 @@
-exports.Article = require('./article')
-exports.Tag = require('./tag')
+import ArticleProxy from './article'
+import TagProxy from './tag'
+
+export {
+  ArticleProxy,
+  TagProxy
+}

@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema, Document, Model } from 'mongoose'
 import DatePlguin from './plugins/date'
-const Schema = mongoose.Schema
+import { TagInterface } from '../types/model'
 
-const TagSchema = new Schema({
+const TagSchema: Schema = new Schema({
   name: { type: String },
   articles: [Schema.Types.ObjectId],
   create_at: { type: Date, default: Date.now },
@@ -11,6 +11,6 @@ const TagSchema = new Schema({
 
 TagSchema.plugin(DatePlguin(false))
 
-const TagModel = mongoose.model('Tag', TagSchema)
+const TagModel: Model<TagInterface> = mongoose.model<TagInterface>('Tag', TagSchema)
 
 export default TagModel
