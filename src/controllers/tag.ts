@@ -1,4 +1,4 @@
-import { Tag as TagProxy } from '../proxy'
+import { TagProxy } from '../proxy'
 import { BaseContext } from 'koa'
 
 export default class TagController {
