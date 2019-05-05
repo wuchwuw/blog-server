@@ -6,10 +6,16 @@ export interface ArticleData {
   tag: string
 }
 
+export interface ArticleFindParams {
+  tag?: string,
+  page: number,
+  pageSize: number
+}
+
 export interface ArticleInterface extends Document {
   title: string,
   content: string,
-  tag: any,
+  tag: string,
   create_at: Date,
   update_at: Date,
   create_at_format?: string,
@@ -25,5 +31,5 @@ export interface TagInterface extends Document {
 
 export interface TagData {
   name: string,
-  articles: any[]
+  articles: string
 }

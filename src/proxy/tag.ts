@@ -1,17 +1,19 @@
 import { TagModel } from '../models'
+import { TagInterface } from '../types/model'
 
 export default class TagProxy {
 
-  public static newAndSave (name) {
+  public static async newAndSave (name: string): Promise<TagInterface> {
     let tag = new TagModel({
-      name,
-      articles: []
+      name
     })
-    return tag.save()
+    tag = await tag.save()
+    return tag
   }
 
-  public static function findAll () {
-    return TagModel.find({})
+  public static async find (): Promise<TagInterface[]> {
+    let tags = await TagModel.find({})
+    return tags
   }
-  
+
 }

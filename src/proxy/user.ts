@@ -1,9 +1,9 @@
-import { UserModel } from '../models'
+// import { UserModel } from '../models'
 
-export function createUser ({ name, password }, callback) {
-  let user = new UserModel({
-    name,
-    password
-  })
-  user.save(callback)
-}
+// export function createUser ({ name, password }, callback) {
+//   let user = new UserModel({
+//     name,
+//     password
+//   })
+//   user.save(callback)
+// }

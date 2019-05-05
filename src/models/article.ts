@@ -3,9 +3,9 @@ import { ArticleInterface } from '../types/model'
 import DatePlguin from './plugins/date'
 
 const ArticleSchema: Schema = new Schema({
-  title: { type: String },
-  content: { type: String },
-  tags: Schema.Types.ObjectId,
+  title: String,
+  content: String,
+  tags: String,
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now }
 })
