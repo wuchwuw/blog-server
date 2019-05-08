@@ -12,7 +12,7 @@ export default class TagProxy {
   }
 
   public static async find (): Promise<TagInterface[]> {
-    let tags = await TagModel.find({})
+    let tags = await TagModel.find({}, 'name id')
     return tags
   }
 

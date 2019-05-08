@@ -26,13 +26,17 @@ export default class ArticleController {
   }
 
   public static async getArticleById (ctx: BaseContext) {
+    console.log(1)
     try {
-      let { arcitleId } = ctx.params
-      await validator({ id: arcitleId }, { id: ArticleFieldRule.id })
-      let article = await ArticleProxy.findById(arcitleId)
+      console.log(ctx.params)
+      let { id } = ctx.params
+      // await validator({ id: id }, { id: ArticleFieldRule.id })
+      let article = await ArticleProxy.findById(id)
       ctx.body = {
         success: true,
-        data: article,
+        data: {
+          article
+        },
         message: '查找文章成功'
       }
     } catch (err) {
@@ -44,15 +48,18 @@ export default class ArticleController {
     try {
       // todo nomarlize page pagesize
       let { tag, page, pageSize } = ctx.query
-      await validator({ tag } , { tag: ArticleFieldRule.tag })
+      // await validator({ tag } , { tag: ArticleFieldRule.tag })
       // await validator({ page, pageSize }, { page: defaultRule.page, pageSize: defaultRule.pageSize })
       let articles = await ArticleProxy.find({ tag, page, pageSize })
       ctx.body = {
         success: true,
-        data: articles,
+        data: {
+          articles
+        },
         message: '查找文章成功'
       }
     } catch (err) {
+      console.log(err)
       ctx.throw(500, err)
     }
   }

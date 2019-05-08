@@ -1,4 +1,6 @@
-export default async function handleError (ctx, next) {
+import { BaseContext } from 'koa'
+
+export default async function handleError (ctx: BaseContext, next: any) {
   try {
     await next()
   } catch (err) {

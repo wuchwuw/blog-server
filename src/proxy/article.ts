@@ -14,7 +14,7 @@ export default class ArticleProxy {
   }
 
   public static async findById (id: string): Promise<ArticleInterface | null> {
-    let article = await ArticleModel.findById(id, 'create_at update_at').exec()
+    let article = await ArticleModel.findById(id).exec()
     return article
     // return new Promise((resolve, reject) => {
     //   ArticleModel.findById(id, 'create_at update_at', (err, article) => {
@@ -28,8 +28,11 @@ export default class ArticleProxy {
   }
 
   public static async find ({tag, page, pageSize}: ArticleFindParams): Promise<ArticleInterface[]>{
-    let skip = (page - 1) * pageSize 
-    let articles = await ArticleModel.find({ tag }, 'create_at update_at').skip(skip).limit(pageSize).exec()
+    console.log(233)
+    // let skip = (page - 1) * pageSize 
+    // let articles = await ArticleModel.find({ tag }, 'create_at update_at').skip(skip).limit(pageSize).exec()
+    let articles = await ArticleModel.find({})
+    console.log(articles)
     return articles
     // return new Promise((resolve, reject) => {
     //   ArticleModel.find({ tag }, 'create_at update_at').skip(skip).limit(pageSize).exec((err, articles) => {
@@ -41,4 +44,5 @@ export default class ArticleProxy {
     //   })
     // })
   }
+  
 }

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wuch1995/blog-server#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
+    "@types/koa2-cors": "^2.0.1",
     "css-doodle": "^0.6.1",
     "ejs": "^2.6.1",
     "highlight.js": "^9.15.6",
@@ -26,6 +27,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa-views": "^6.2.0",
+    "koa2-cors": "^2.0.6",
     "log4js": "^4.1.0",
     "marked": "^0.6.1",
     "moment": "^2.24.0",

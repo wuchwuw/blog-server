@@ -1,5 +1,5 @@
-import log4js from 'log4js'
-import path from 'path'
+import * as log4js from 'log4js'
+import * as path from 'path'
 
 log4js.configure({
   appenders: {

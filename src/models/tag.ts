@@ -1,12 +1,16 @@
-import mongoose, { Schema, Document, Model } from 'mongoose'
+import * as mongoose from 'mongoose'
+import { Schema, Model } from 'mongoose'
 import DatePlguin from './plugins/date'
 import { TagInterface } from '../types/model'
 
 const TagSchema: Schema = new Schema({
   name: { type: String },
-  articles: [Schema.Types.ObjectId],
+  // articles: [Schema.Types.ObjectId],
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now }
+}, {
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true }
 })
 
 TagSchema.plugin(DatePlguin(false))

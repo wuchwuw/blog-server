@@ -26,7 +26,9 @@ export interface TagInterface extends Document {
   name: string,
   articles: any[],
   create_at: Date,
-  update_at: Date
+  update_at: Date,
+  create_at_format?: string,
+  update_at_format?: string
 }
 
 export interface TagData {
