@@ -1,26 +1,31 @@
 import { TagProxy } from '../proxy'
 import { BaseContext } from 'koa'
-import { validator, TagFieldRule } from '../common/validator'
+import { validator } from '../common/validator'
 
 export default class TagController {
 
   public static async create (ctx: BaseContext) {
     try {
       let { name } = ctx.request.body
-      await validator({ name }, { name: TagFieldRule.tag })
-      await TagProxy.newAndSave(name)
+      validator(ctx, { name }, {
+        name: [
+          { rule: 'required', errorMsg: '请输入文章标签' }
+        ]
+      })
+      let tag = await TagProxy.newAndSave(name)
       ctx.body = {
         success: true,
+        data: {
+          tag
+        },
         message: '创建标签成功'
       }
-    } catch (e) {
-      console.log(e)
-      ctx.throw(500, 'error')
+    } catch (err) {
+      ctx.throw(500, err)
     }
   }
 
   public static async getAllTag (ctx: BaseContext) {
-    console.log(111111)
     try {
       let tags = await TagProxy.find()
       ctx.body = {
@@ -30,8 +35,9 @@ export default class TagController {
         },
         message: '获取所有标签成功'
       }
-    } catch (e) {
-      ctx.throw(500, 'error')
+    } catch (err) {
+      ctx.throw(500, err)
     }
   }
+
 }

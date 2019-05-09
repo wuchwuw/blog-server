@@ -5,7 +5,6 @@ import * as bodyParser from 'koa-bodyparser'
 import errorHandle from './middlewares/error'
 import * as cors from 'koa2-cors'
 import logger from './common/logger'
-import { TagModel } from './models'
 // import path from 'path'
 // import views from 'koa-views'
 

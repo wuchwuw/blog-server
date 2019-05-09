@@ -1,14 +1,23 @@
 import { ArticleProxy } from '../proxy'
 import { validator } from '../common/validator'
 import { BaseContext } from 'koa'
-import { ArticleFieldRule, defaultRule } from '../common/validator'
 
 export default class ArticleController {
 
   public static async create (ctx: BaseContext) {
     try {
       let { title, content, tag } = ctx.request.body
-      await validator({ title, content, tag }, ArticleFieldRule)
+      validator(ctx, { title, content, tag }, {
+        title: [
+          { rule: 'required', errorMsg: '请输入文章标题' }
+        ],
+        content: [
+          { rule: 'required', errorMsg: '请输入文字内容' }
+        ],
+        tag: [
+          { rule: 'required', errorMsg: '请输入文章标签' }
+        ]
+      })
       let article = await ArticleProxy.newAndSave({ title, content, tag })
       ctx.body = {
         success: true,
@@ -26,11 +35,13 @@ export default class ArticleController {
   }
 
   public static async getArticleById (ctx: BaseContext) {
-    console.log(1)
     try {
-      console.log(ctx.params)
       let { id } = ctx.params
-      // await validator({ id: id }, { id: ArticleFieldRule.id })
+      validator(ctx, { id }, {
+        id: [
+          { rule: 'required', errorMsg: '请输入正确的文章id' }
+        ]
+      })
       let article = await ArticleProxy.findById(id)
       ctx.body = {
         success: true,
@@ -48,8 +59,8 @@ export default class ArticleController {
     try {
       // todo nomarlize page pagesize
       let { tag, page, pageSize } = ctx.query
-      // await validator({ tag } , { tag: ArticleFieldRule.tag })
-      // await validator({ page, pageSize }, { page: defaultRule.page, pageSize: defaultRule.pageSize })
+      // validator({ tag } , { tag: ArticleFieldRule.tag })
+      // validator({ page, pageSize }, { page: defaultRule.page, pageSize: defaultRule.pageSize })
       let articles = await ArticleProxy.find({ tag, page, pageSize })
       ctx.body = {
         success: true,
@@ -59,7 +70,6 @@ export default class ArticleController {
         message: '查找文章成功'
       }
     } catch (err) {
-      console.log(err)
       ctx.throw(500, err)
     }
   }

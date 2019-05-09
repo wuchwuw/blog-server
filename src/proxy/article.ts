@@ -28,11 +28,9 @@ export default class ArticleProxy {
   }
 
   public static async find ({tag, page, pageSize}: ArticleFindParams): Promise<ArticleInterface[]>{
-    console.log(233)
     // let skip = (page - 1) * pageSize 
     // let articles = await ArticleModel.find({ tag }, 'create_at update_at').skip(skip).limit(pageSize).exec()
     let articles = await ArticleModel.find({})
-    console.log(articles)
     return articles
     // return new Promise((resolve, reject) => {
     //   ArticleModel.find({ tag }, 'create_at update_at').skip(skip).limit(pageSize).exec((err, articles) => {
